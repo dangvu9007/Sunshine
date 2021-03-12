@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sunshine"
         tools:ignore="AllowBackup">
-        <activity android:name="fragment.DetailActivity"/>
+        <activity android:name="fragment.DetailActivity"
+            android:parentActivityName=".MainActivity"
+            />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

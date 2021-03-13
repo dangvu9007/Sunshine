@@ -46,15 +46,15 @@ public class ListDummyData {
         listWeather.add(model);
     }
 
-    public ArrayList<Weather> list7Day() {
-        ArrayList<Weather> list7Day = new ArrayList<Weather>();
+    public ArrayList<Weather> listAfterToday() {
+        ArrayList<Weather> listAfter = new ArrayList<Weather>();
         Date currentTime = new Date();
         for (Weather weather : listWeather) {
             if (DateTimeParse.compareDate(weather.getDateTime(),currentTime)>0) {
-                list7Day.add(weather);
+                listAfter.add(weather);
             }
         }
-        return list7Day;
+        return listAfter;
     }
 
     public Weather getWeatherToDay() {

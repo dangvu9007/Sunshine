@@ -21,9 +21,11 @@ import adapter.WeatherAdapter;
  * create an instance of this fragment.
  */
 public class ListFragment extends Fragment {
-private WeatherAdapter weatherAdapter;
+    WeatherAdapter weatherAdapter;
+    RecyclerView recyclerView;
+
     public ListFragment() {
-       weatherAdapter = new WeatherAdapter(getActivity());
+        weatherAdapter = new WeatherAdapter(getActivity());
     }
 
 
@@ -47,8 +49,15 @@ private WeatherAdapter weatherAdapter;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        RecyclerView recyclerView = view.findViewById(R.id.rcvWeather);
+        recyclerView =view.findViewById(R.id.rcvWeather);
         recyclerView.setAdapter(weatherAdapter);
         recyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.setAdapter(weatherAdapter);
+        weatherAdapter.notifyDataSetChanged();
     }
 }

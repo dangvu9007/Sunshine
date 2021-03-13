@@ -30,7 +30,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
     public WeatherAdapter(Context context) {
         this.context= context;
         listDummyData = new ListDummyData();
-        list = listDummyData.list7Day();
+        list = listDummyData.listAfterToday();
     }
 
     @NonNull

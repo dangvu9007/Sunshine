@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         listFragment = ListFragment.newInstance();
         fragmentManager.beginTransaction().add(R.id.frament_list, listFragment, TAG_LIST).commit();
 
-
     }
 
 

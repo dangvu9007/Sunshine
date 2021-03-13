@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG_DETAIL = "fragmentDetail";
     private final String TAG_LIST = "fragmentList";
+    private final int REQUEST_BACK =113;
     private DetailFragment detailFragment;
     private ListFragment listFragment;
 
@@ -47,4 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

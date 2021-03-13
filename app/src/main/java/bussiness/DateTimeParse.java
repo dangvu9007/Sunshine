@@ -1,5 +1,7 @@
 package bussiness;
 
+import org.joda.time.DateTimeComparator;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,5 +34,10 @@ public class DateTimeParse {
         format.applyPattern("EEEE, MMMM d");
         return format.format(date);
 
+    }
+
+    public static int compareDate(Date date1,Date date2){
+        DateTimeComparator comparator = DateTimeComparator.getDateOnlyInstance();
+        return comparator.compare(date1,date2);
     }
 }

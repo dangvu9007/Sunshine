@@ -18,7 +18,7 @@ import com.dang.sunshine.R;
 import java.util.List;
 
 import bussiness.DateTimeParse;
-import fragment.DetailActivity;
+import com.dang.sunshine.DetailActivity;
 import model.Weather;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder> {
@@ -51,7 +51,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         String dayOfWeek = "Tomorow";
         View view = holder.itemView;
         if (position != 0) {
-            dayOfWeek = DateTimeParse.dayOfWeek(weather.getDate());
+            dayOfWeek = DateTimeParse.dayOfWeek(weather.getDateTime());
         }
         holder.img_ic_weather.setImageResource(weather.getThumbnailId());
         holder.tvDayOfWeek.setText(dayOfWeek);

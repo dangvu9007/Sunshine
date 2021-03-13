@@ -1,12 +1,11 @@
-package fragment;
+package com.dang.sunshine;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.dang.sunshine.R;
-
+import fragment.DetailFragment;
 import model.Weather;
 
 public class DetailActivity extends AppCompatActivity {
@@ -25,5 +24,11 @@ public class DetailActivity extends AppCompatActivity {
         DetailFragment detailFragment = DetailFragment.newInstance(weather,false);
         getSupportFragmentManager().beginTransaction().add(R.id.frmDetail_container,detailFragment,TAG_DETAIL).commit();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

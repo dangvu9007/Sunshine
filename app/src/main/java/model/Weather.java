@@ -24,7 +24,7 @@ public class Weather implements Serializable {
     }
 
 
-    public Date getDate() {
+    public Date getDateTime() {
         return dateTime;
     }
 

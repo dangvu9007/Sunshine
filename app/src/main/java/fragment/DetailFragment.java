@@ -69,6 +69,7 @@ public class DetailFragment extends Fragment {
     }
 
     private void mapToView(View view) {
+        Weather weather =mWeather;
         TextView tvToDay, tvtemperatureHight, tvtemperatureLow, tvRegion, tvState;
         ImageView imgArt;
 
@@ -82,7 +83,7 @@ public class DetailFragment extends Fragment {
         if (mMain) {
             tvToDay.setText(DateTimeParse.today());
         } else {
-            tvToDay.setText(DateTimeParse.date(mWeather.getDate()));
+            tvToDay.setText(DateTimeParse.date(mWeather.getDateTime()));
             view.setBackgroundColor(getActivity().getResources().getColor(R.color.white));
             tvtemperatureHight.setTextColor(getActivity().getResources().getColor(R.color.black));
             tvtemperatureLow.setTextColor(getActivity().getResources().getColor(R.color.black));

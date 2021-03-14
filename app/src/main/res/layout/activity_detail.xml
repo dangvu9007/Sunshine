@@ -5,8 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
-<FrameLayout
-    android:id="@+id/frmDetail_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/frmDetail_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvPressure"
+        />
+
+    <TextView
+        android:id="@+id/tvHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Humidity:30 %"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvPressure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frmDetail_container"
+        android:layout_marginStart="30dp"/>
+
+    <TextView
+        android:id="@+id/tvPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Pressure:1007 hPa"
+        android:layout_marginStart="30dp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/tvWind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidity" />
+
+    <TextView
+        android:id="@+id/tvWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wind: 3 km/h E"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvPressure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="200dp"
+        android:layout_marginStart="30dp"
+       />
 </androidx.constraintlayout.widget.ConstraintLayout>

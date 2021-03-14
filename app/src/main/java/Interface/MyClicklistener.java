@@ -2,6 +2,6 @@ package Interface;
 
 import model.Weather;
 
-public interface Callback {
+public interface MyClicklistener {
     public void onclick(Weather weather);
 }

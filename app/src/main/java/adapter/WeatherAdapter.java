@@ -2,8 +2,6 @@ package adapter;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +15,20 @@ import com.dang.sunshine.R;
 
 import java.util.List;
 
+import Interface.MyClicklistener;
 import bussiness.DateTimeParse;
-import com.dang.sunshine.DetailActivity;
 import model.Weather;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHolder> {
 
     private List<Weather> list;
-    private ListDummyData listDummyData;
+    private final ListDummyData listDummyData;
     private Context context;
+    private MyClicklistener myClicklistener;
 
-    public WeatherAdapter(Context context) {
-        this.context= context;
+    public WeatherAdapter(Context context, MyClicklistener myClicklistener) {
+        this.context = context;
+        this.myClicklistener = myClicklistener;
         listDummyData = new ListDummyData();
         list = listDummyData.listAfterToday();
     }
@@ -58,17 +58,13 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         holder.tvTempHigh_Lv.setText(String.valueOf(weather.getTempHight()) + "\u00B0");
         holder.tvTempLow_Lv.setText(String.valueOf(weather.getTempLow()) + "\u00B0");
         holder.tvState_Lv.setText(weather.getState());
-        view.setOnClickListener(new View.OnClickListener() {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), DetailActivity.class);
-                Bundle bundle= new Bundle();
-                bundle.putSerializable("weather",weather);
-                intent.putExtra("bundle",bundle);
-                view.getContext().startActivity(intent);
+                myClicklistener.onclick(weather);
             }
         });
-
     }
 
     @Override

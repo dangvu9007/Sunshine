@@ -1,7 +1,9 @@
 package com.dang.sunshine;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -12,13 +14,11 @@ import fragment.DetailFragment;
 import fragment.ListFragment;
 import model.Weather;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private final String TAG_DETAIL = "fragmentDetail";
     private final String TAG_LIST = "fragmentList";
-    private final int REQUEST_BACK =113;
-    private DetailFragment detailFragment;
-    private ListFragment listFragment;
+    private final int REQUEST_BACK = 113;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,22 @@ public class MainActivity extends AppCompatActivity {
         Weather weather = list.getWeatherToDay();
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        detailFragment = DetailFragment.newInstance(weather, true);
+        DetailFragment detailFragment = DetailFragment.newInstance(weather, true);
         fragmentManager.beginTransaction().add(R.id.fragment_detail, detailFragment, TAG_DETAIL).commit();
 
-        listFragment = ListFragment.newInstance();
+        ListFragment listFragment = ListFragment.newInstance();
         fragmentManager.beginTransaction().add(R.id.frament_list, listFragment, TAG_LIST).commit();
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       if (requestCode==1){
+           if (resultCode == RESULT_OK) {
+
+           }
+       }
+    }
 
 }
